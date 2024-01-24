@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/SceneMenu.unity
+    guid: 0719b0253d0ac4f8ba92b0ed6faf65b3
+  - enabled: 1
+    path: Assets/Scenes/CenarioPiscina.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/SceneRegistar.unity
+    guid: ee2deb1af473a4a21b2c27c9afc2a380
+  - enabled: 1
+    path: Assets/Scenes/SceneLogin.unity
+    guid: 75c98372a373e44128341338d0bac43a
+  - enabled: 1
+    path: "Assets/Scenes/SceneCen\xE1rio.unity"
+    guid: 41401093a41d64a7f961bbc38f1ed579
+  - enabled: 1
+    path: Assets/Scenes/SceneLoading.unity
+    guid: 9d01d088b6fa44c9f8f0fcc9933c06ba
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 084a236390c6d3640ad2496116ef6548,
       type: 2}
