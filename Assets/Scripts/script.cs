@@ -81,6 +81,10 @@ public class script : MonoBehaviour
          SceneManager.LoadScene("SceneLoading", LoadSceneMode.Single);
     }
 
+    public void CenaSala(){
+         SceneManager.LoadScene("SceneLoadingSala", LoadSceneMode.Single);
+    }
+
     public void sair()
     {
        

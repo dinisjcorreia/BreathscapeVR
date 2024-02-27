@@ -92,7 +92,7 @@ public class scriptlogin : MonoBehaviour
         else
         {
             if (www.downloadHandler.text!="0"){
-                codigo.text="Código: "+  www.downloadHandler.text;
+                codigo.text="Código: <color=#027E02>"+  www.downloadHandler.text;
             }
             else
             {
