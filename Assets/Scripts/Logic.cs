@@ -49,6 +49,12 @@ public class Logic : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Camera playerHead;
 
+    //opiniao
+     [SerializeField] GameObject opiniao;
+
+      //parabens
+     [SerializeField] GameObject parabens;
+
 
     void Start()
     {
@@ -131,6 +137,8 @@ string endereço = "https://breathscapevr.000webhostapp.com";
     IEnumerator numsessoess(int num)
     {
        GestorPrograma.Instancia.Numsessoes=GestorPrograma.Instancia.Numsessoes+num;
+
+      
         //preparar dados a enviar para o servidor
         WWWForm form = new WWWForm();
         
@@ -154,6 +162,7 @@ string endereço = "https://breathscapevr.000webhostapp.com";
         {
            
             Debug.Log("add 1 sessao");
+            abrirOpiniao();
 
         }
            
@@ -186,8 +195,9 @@ string endereço = "https://breathscapevr.000webhostapp.com";
 
             yield return new WaitForSeconds(9f);
             bolaa.SetActive(false);
-            botoes(true);
+            
             addnumsessoess();
+            
 
 
         }
@@ -195,6 +205,16 @@ string endereço = "https://breathscapevr.000webhostapp.com";
 
 
 
+    }
+
+    //abrir opiniao
+    public void abrirOpiniao()
+    {
+        opiniao.SetActive(true);
+
+         if (GestorPrograma.Instancia.Numsessoes==3 || GestorPrograma.Instancia.Numsessoes==5){
+        parabens.SetActive(true);
+       }
     }
     
     // sair do jogo
@@ -447,5 +467,9 @@ string endereço = "https://breathscapevr.000webhostapp.com";
         }
 
 
+    }
+
+    public void ResetPiscina(){
+         SceneManager.LoadScene("CenarioPiscina", LoadSceneMode.Single);
     }
 }

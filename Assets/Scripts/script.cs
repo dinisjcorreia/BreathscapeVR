@@ -19,6 +19,14 @@ public class script : MonoBehaviour
     [SerializeField] Transform resetTransform;
     [SerializeField] GameObject player;
     [SerializeField] Camera playerHead;
+
+
+    // aviso
+
+    [SerializeField] GameObject avisocenario2;
+    [SerializeField] GameObject avisocenario3;
+    [SerializeField] GameObject background;
+
     void Start()
     {
       StartCoroutine(resetpos());
@@ -99,6 +107,57 @@ public class script : MonoBehaviour
         var distanceDiff = resetTransform.position - playerHead.transform.position;
         player.transform.position += distanceDiff;
 
+    }
+
+    public void aviso2(){
+      
+
+        if (cenario2.interactable==false){
+            StartCoroutine(avisocenariodois());
+        }
+       
+    }
+
+     IEnumerator avisocenariodois()
+    {
+
+        Vector2 size = background.GetComponent<RectTransform>().sizeDelta;
+        Vector3 pos = background.GetComponent<RectTransform>().localPosition;
+       
+      if (avisocenario3.activeSelf==false){
+        background.GetComponent<RectTransform>().sizeDelta = new Vector2 (4.3059f, 4.4665f);
+        background.GetComponent<RectTransform>().localPosition = new Vector3 (-3.08f, -8.1191f, 6.1f);
+        avisocenario2.SetActive(true);
+          yield return new WaitForSeconds(3f);
+        avisocenario2.SetActive(false);
+        background.GetComponent<RectTransform>().sizeDelta = size;
+         background.GetComponent<RectTransform>().localPosition = pos;
+      }
+
+         
+    }
+
+       public void aviso3(){
+           if (cenario3.interactable==false){
+            StartCoroutine(avisocenariotres());
+        }
+    }
+
+     IEnumerator avisocenariotres()
+    {
+         Vector2 size = background.GetComponent<RectTransform>().sizeDelta;
+         Vector3 pos = background.GetComponent<RectTransform>().localPosition;
+        if (avisocenario2.activeSelf==false){
+        background.GetComponent<RectTransform>().sizeDelta = new Vector2 (4.3059f, 4.4665f);
+        background.GetComponent<RectTransform>().localPosition = new Vector3 (-3.08f, -8.1191f, 6.1f);
+        avisocenario3.SetActive(true);
+          yield return new WaitForSeconds(3f);
+        avisocenario3.SetActive(false);
+         background.GetComponent<RectTransform>().sizeDelta = size;
+           background.GetComponent<RectTransform>().localPosition = pos;
+      }
+      
+        
     }
 
 }
