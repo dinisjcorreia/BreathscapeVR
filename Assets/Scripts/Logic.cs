@@ -52,8 +52,15 @@ public class Logic : MonoBehaviour
     //opiniao
      [SerializeField] GameObject opiniao;
 
-      //parabens
-     [SerializeField] GameObject parabens;
+
+ //menu pausa
+     [SerializeField] GameObject menupausa;
+
+
+    // tempo sessao
+
+    private float timer=0;
+    private bool timerActive = false;
 
 
     void Start()
@@ -83,7 +90,7 @@ public class Logic : MonoBehaviour
         }else if (s){
 
             // ativa botões e controles
-            botao.SetActive(true);
+          //  botao.SetActive(true);
             lineVisuall.enabled = true;
             lineVisualr.enabled = true;
         }
@@ -92,23 +99,19 @@ public class Logic : MonoBehaviour
 
     }
 
-    // void desativabotoes()
-    // {
-    //     // desativa botões e controles
-    //     botao.SetActive(false);
-    //     lineVisuall.enabled = false;
-    //     lineVisualr.enabled = false;
-     
-
-    // }
-
-    // void ativabotoes()
-    // {
-    //     botao.SetActive(true);
-    //     lineVisuall.enabled = true;
-    //     lineVisualr.enabled = true;
-
-    // }
+    public void menuPausa(bool flag){
+        if (flag){
+            if (menupausa.activeSelf==false){
+                menupausa.SetActive(true);
+            }
+            
+        }else{
+           if (menupausa.activeSelf==true){
+                menupausa.SetActive(false);
+            }
+        }
+            
+    }
 
     public void iniciar()
     {
@@ -121,6 +124,10 @@ public class Logic : MonoBehaviour
 
     public void addnumsessoess(){
      StartCoroutine(numsessoess(1));
+}
+
+    public void enviarrtimer(){
+     StartCoroutine(enviartimer());
 }
 
 public void removenumsessoess(){
@@ -136,6 +143,9 @@ public void removenumsessoess(){
 string endereço = "https://breathscapevr.000webhostapp.com";
     IEnumerator numsessoess(int num)
     {
+        string tempo =timer.ToString();
+        timer=0;
+        timerActive=false;
        GestorPrograma.Instancia.Numsessoes=GestorPrograma.Instancia.Numsessoes+num;
 
       
@@ -144,6 +154,9 @@ string endereço = "https://breathscapevr.000webhostapp.com";
         
         form.AddField("username", GestorPrograma.Instancia.Utilizador);
         form.AddField("numsessoes", GestorPrograma.Instancia.Numsessoes);
+        form.AddField("timer", tempo);
+        form.AddField("conclui", "1");
+    
         UnityWebRequest www = UnityWebRequest.Post(endereço+"/breathscapevr/numsessoes.php", form);
 
         
@@ -160,8 +173,9 @@ string endereço = "https://breathscapevr.000webhostapp.com";
         //Se não, o utilizador é criado com sucesso e voltamos ao menu principal
         else
         {
-           
+           timer=0;
             Debug.Log("add 1 sessao");
+           
             abrirOpiniao();
 
         }
@@ -173,7 +187,7 @@ string endereço = "https://breathscapevr.000webhostapp.com";
     {
         if (ativado == false) // verifica se o jogo já foi iniciado
         {
-           // addnumsessoess();
+           timerActive=true;
             ativado = true; 
 
             StartCoroutine(Legendas());
@@ -188,6 +202,7 @@ string endereço = "https://breathscapevr.000webhostapp.com";
             while (contador <= numsessoes)
             {
                 contador += 1;
+                Debug.Log(contador);
                 anim.SetTrigger("iniciar");
 
                 yield return new WaitForSeconds(20f);
@@ -210,11 +225,11 @@ string endereço = "https://breathscapevr.000webhostapp.com";
     //abrir opiniao
     public void abrirOpiniao()
     {
-        opiniao.SetActive(true);
+     
+              opiniao.SetActive(true);
+     
 
-         if (GestorPrograma.Instancia.Numsessoes==3 || GestorPrograma.Instancia.Numsessoes==5){
-        parabens.SetActive(true);
-       }
+        
     }
     
     // sair do jogo
@@ -242,104 +257,11 @@ string endereço = "https://breathscapevr.000webhostapp.com";
         legenda4.SetActive(false);
 
 
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(7f);
+      
+        yield return new WaitForSeconds(139f);
+        
         legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
         legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(7f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(7f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(7f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(7f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(7f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(7f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        legendaexpire.SetActive(false);
-
-        legendainspire.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        legendainspire.SetActive(false);
-        legendaexpire.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        legendaexpire.SetActive(false);
-
         legenda7.SetActive(true);
         yield return new WaitForSeconds(2f);
         legenda7.SetActive(false);
@@ -348,11 +270,58 @@ string endereço = "https://breathscapevr.000webhostapp.com";
         legenda8.SetActive(false);
 
     }
+    // enviar timer
+     IEnumerator enviartimer()
+    {
+    
+      string tempo = timer.ToString();
+       timer=0;
+     
+        //preparar dados a enviar para o servidor
+        WWWForm form = new WWWForm();
+        
+        form.AddField("username", GestorPrograma.Instancia.Utilizador);
+        form.AddField("timer", tempo);
+        form.AddField("conclui", "0");
+    
+        UnityWebRequest www = UnityWebRequest.Post(endereço+"/breathscapevr/enviartimer.php", form);
+
+        
+        //Pedir ao unity para executar e assim que receber toda a informação continua a execução do script
+        yield return www.SendWebRequest();
+
+        //se existir erro de comunicação com o servidor:
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError) 
+        {
+            //Existem erros de comunicação
+            Debug.Log("Comunicação com o servidor falhou. Erro #" + www.error);
+            //erro.text="Comunicação com o servidor falhou.";
+        }
+        //Se não, o utilizador é criado com sucesso e voltamos ao menu principal
+        else
+        {
+           timer=0;
+            Debug.Log("addtimer");
+           
+           
+
+        }
+           
+    }
 
     // termina sessão de respiração e reseta opções
     public void stop()
     {
-       // removenumsessoess();
+        bool flag=false;
+        if (timerActive){
+            timerActive=false;
+    
+       enviarrtimer();
+        }
+       
+       if (bolaa.activeSelf){
+        flag=true;
+       }
         contador = 0;
         ativado = false;
         audio.Stop();
@@ -367,7 +336,16 @@ string endereço = "https://breathscapevr.000webhostapp.com";
         legenda7.SetActive(false);
         legenda8.SetActive(false);
         anim.StopPlayback();
+        menupausa.SetActive(false);
         bolaa.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+      
+      botoes(true);
+      if(flag){
+            abrirOpiniao();
+        
+      }
+      
+      
     }
 
 
@@ -382,9 +360,17 @@ string endereço = "https://breathscapevr.000webhostapp.com";
         player.transform.position += distanceDiff;
 
     }
-    // opções dos comandos
+   
     void Update()
     {
+
+        // timer
+
+        if (timerActive){
+            timer += Time.deltaTime;
+        }
+        //comandos
+
         bool triggerValue=false;
        
         var leftHandedControllers = new List<UnityEngine.XR.InputDevice>();
@@ -396,12 +382,10 @@ string endereço = "https://breathscapevr.000webhostapp.com";
             UnityEngine.XR.InputDevice leftcontroller = leftHandedControllers[0];
 
             // verifica se o trigger esquerdo foi pressionado
-            if (leftcontroller.TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out triggerValue) && triggerValue)
+           /*  if (leftcontroller.TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out triggerValue) && triggerValue)
             {
-                // ativa opções 
-                botoes(true);
-                stop();
-            }
+               
+            } */
 
              if (leftcontroller.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out triggerValue) && triggerValue)
             {
@@ -416,11 +400,11 @@ string endereço = "https://breathscapevr.000webhostapp.com";
 
         }
 
-    /*  if (Input.GetKeyDown("space"))
+     if (Input.GetKeyDown("space"))
         {
-             stop();
-            Debug.Log("space key was pressed");
-        } */
+             menuPausa(true);
+          
+        } 
        
 
         var rightHandedControllers = new List<UnityEngine.XR.InputDevice>();
@@ -432,39 +416,25 @@ string endereço = "https://breathscapevr.000webhostapp.com";
             UnityEngine.XR.InputDevice rightcontroller = rightHandedControllers[0];
 
             // verifica se o trigger direito foi pressionado
-            if (rightcontroller.TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out triggerValue) && triggerValue)
+            /* if (rightcontroller.TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out triggerValue) && triggerValue)
             {
-                // ativa opções
-                botoes(true);
-                stop();
-            }
+                
+            } */
 
              if (rightcontroller.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out triggerValue) && triggerValue)
             {
-                audio.volume -= 0.1f;
-                musica.volume -= 0.1f;
+              
+                 menuPausa(true);
             }
 
              if (rightcontroller.TryGetFeatureValue(UnityEngine.XR.CommonUsages.secondaryButton, out triggerValue) && triggerValue)
             {
-                audio.volume += 0.1f;
-                musica.volume += 0.1f;
+               
+                 menuPausa(true);
             }
         }
 
-        // !!!!!
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            audio.volume -= 0.1f;
-            musica.volume -= 0.1f;
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            audio.volume += 0.1f;
-            musica.volume += 0.1f;
-        }
+       
 
 
     }

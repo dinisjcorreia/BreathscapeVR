@@ -764,7 +764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Fa\xE7a login atrav\xE9s do link abaixo:\n<color=\"grey\">http://breathscapevr.live"
+  m_text: "Fa\xE7a login atrav\xE9s do link abaixo:\n<color=\"grey\">http://expocolgaia.pt/breathscape"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab9b298548f57435696d7ca96ab34324, type: 2}
   m_sharedMaterial: {fileID: 2070126710586496211, guid: ab9b298548f57435696d7ca96ab34324,
@@ -792,8 +792,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.1
-  m_fontSizeBase: 0.1
+  m_fontSize: 0.09
+  m_fontSizeBase: 0.09
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

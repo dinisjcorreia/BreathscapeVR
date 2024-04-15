@@ -34,7 +34,7 @@ public class script : MonoBehaviour
         {
             mensagem.text = "Utilizador: " + GestorPrograma.Instancia.Utilizador +"<br>Número de sessões: "+GestorPrograma.Instancia.Numsessoes ;
 
-            if (GestorPrograma.Instancia.Numsessoes>=5){
+            if (GestorPrograma.Instancia.Numsessoes>=999){
                 cenario2.interactable=true;
                 bloqueadocenario2.text="";
                 cenario3.interactable=true;

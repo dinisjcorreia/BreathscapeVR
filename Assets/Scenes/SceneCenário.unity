@@ -1447,8 +1447,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00999862, y: -0.52372426}
-  m_SizeDelta: {x: 1.0800028, y: -0.13255131}
+  m_AnchoredPosition: {x: 0, y: -0.529125}
+  m_SizeDelta: {x: -0.0818, y: -1.04175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805255039
 MonoBehaviour:
@@ -2428,7 +2428,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<color=\"red\">AVISO: </color=\"red\">\xC9 necess\xE1rio ter realizado
-    pelo menos 5 sess\xF5es antes de desbloquear este cen\xE1rio!"
+    pelo menos x sess\xF5es antes de desbloquear este cen\xE1rio!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab9b298548f57435696d7ca96ab34324, type: 2}
   m_sharedMaterial: {fileID: 2070126710586496211, guid: ab9b298548f57435696d7ca96ab34324,
@@ -2551,7 +2551,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656607359}
   m_LocalRotation: {x: 0.0000021166636, y: 0.0000008568168, z: -0.0000012638047, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2559,8 +2559,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000013709068, y: -0.5237243}
-  m_SizeDelta: {x: 3.380003, y: -0.13255131}
+  m_AnchoredPosition: {x: -0.0012499988, y: -0.529125}
+  m_SizeDelta: {x: 0.13750002, y: -1.04175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656607361
 MonoBehaviour:
@@ -3844,7 +3844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 251303afb82f944b695c897e9a8fd1d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1454a9bb1c79431fa507354ec987ed9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
