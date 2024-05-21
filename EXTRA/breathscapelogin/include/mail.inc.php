@@ -59,8 +59,8 @@ $html = '
 
 ';
 
-$user = '';
-$pass = '';
+$user = 'noreply.breathscapevr@gmail.com';
+$pass = 'hxmnmbclddqdhxpr';
 
 
 $mail = new PHPMailer(true);
