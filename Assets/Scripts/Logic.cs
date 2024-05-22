@@ -140,7 +140,7 @@ public void removenumsessoess(){
          ResetPosition();
            
     }
-string endereço = "https://breathscapevr.000webhostapp.com";
+string endereço = "";
     IEnumerator numsessoess(int num)
     {
         string tempo =timer.ToString();
