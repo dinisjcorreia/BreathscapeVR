@@ -68,7 +68,7 @@ public class scriptlogin : MonoBehaviour
 
     }
     public TMP_Text codigo; 
-    string endereço = "https://breathscapevr.000webhostapp.com";
+    string endereço = "";
      IEnumerator Codigologin()
     {
         //preparar dados a enviar para o servidor
