@@ -2,12 +2,12 @@
 @session_start();
 global $arrConfig;
 
-$arrConfig['servername'] = 'sql.freedb.tech';
-$arrConfig['username'] = 'freedb_kodin';
-$arrConfig['password'] = 'a$S2$U8z*?cux*a';
-$arrConfig['dbname'] = 'freedb_breathscapevr';
+$arrConfig['servername'] = '';
+$arrConfig['username'] = '';
+$arrConfig['password'] = '';
+$arrConfig['dbname'] = '';
 
-$arrConfig['urlMail'] = 'https://expocolgaia.pt/breathscape/include/mail.inc.php';
+$arrConfig['urlMail'] = '';
 
 // chamada de outros include
 include_once 'db.inc.php'; 
