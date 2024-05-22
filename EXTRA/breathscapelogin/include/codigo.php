@@ -28,12 +28,12 @@
 
 @session_start();
 
-$url ="https://expocolgaia.pt/breathscape/";
+$url ="";
 
 if($_SESSION['codigo'] == $_POST["codigo"])
 {
     echo "Código correto!";
-    $ligacao = mysqli_connect('sql.freedb.tech', 'freedb_kodin', 'a$S2$U8z*?cux*a', 'freedb_breathscapevr');
+    $ligacao = mysqli_connect('', '', '', '');
     $qCriarUtilizador = " INSERT INTO login (email, username, password, criado_em, salt) VALUES ( '" .$_SESSION['email']. "','" .$_SESSION['username']. "', '" .$_SESSION['password']. "', '" .$_SESSION['dataregisto']. "', '" .$_SESSION['salt']. "');";	
 	mysqli_query($ligacao, $qCriarUtilizador) or die ("Falha ao criar utilizador!");//Erro #4 = Não foi possivel registar o utilizador na BD
     header('Location: ' . $url . 'login.php');
