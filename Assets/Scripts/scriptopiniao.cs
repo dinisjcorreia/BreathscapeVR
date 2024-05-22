@@ -67,7 +67,7 @@ public class scriptopiniao : MonoBehaviour
         //Application.Quit();
     }
 
-    string endereço = "https://breathscapevr.000webhostapp.com";
+    string endereço = "";
     IEnumerator addopiniao()
     {
       
