@@ -42,9 +42,9 @@ function getRnd($n) {
     return $randomString;
 }
 
-	$url ="https://expocolgaia.pt/breathscape/";
+	$url ="";
 	//versão simplificada de ligação à BD
-	$ligacao = mysqli_connect('sql.freedb.tech', 'freedb_kodin', 'a$S2$U8z*?cux*a', 'freedb_breathscapevr');
+	$ligacao = mysqli_connect('', '', '', '');
 	
 	if(mysqli_connect_errno()){
 		 
