@@ -63,7 +63,7 @@ public class menu : MonoBehaviour
        SceneManager.LoadScene("SceneCenário", LoadSceneMode.Single);
     }
 
-string endereço = "https://breathscapevr.000webhostapp.com";
+string endereço = "";
 
 public void fazerlogout(){
      StartCoroutine(logout());
